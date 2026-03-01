@@ -50,7 +50,7 @@
 ![main](https://github.com/user-attachments/assets/52a2b94a-6eeb-46f4-887e-c38cd8ee6d9d)
 
 
-## Analyse le manifeste: $${\color{red}Analyse le manifeste: }$$
+##  $${\color{red}Analyse le manifeste:}$$
 
 - $${\color{red}Package principal:}$$ **owasp.mstg.uncrackable1**.
 - $${\color{red}versionName:}$$ **1.0**
@@ -60,55 +60,32 @@
 - $${\color{red}intent-filter:}$$ `<intent-filter><action android:name="android.intent.action.MAIN"/><category android:name="android.intent.category.LAUNCHER"/></intent-filter>`
 - Il n'y a ni `sh android:usesCleartextTraffic="true"` ni `android:debuggable="true"` 
 
+## Analyse des ressources importantes(*ex strings.xml...*):
 
+### res/values/strings.xml 
 
+~~~ xml
 
+<resources>
+    <style name="AppTheme" parent="@android:style/Theme.Holo.Light.DarkActionBar">
+    </style>
+</resources>
 
+~~~
 
+### res/values/styles.xml 
 
+~~~ xml
 
+<resources>
+    <string name="action_settings">Uncrackable1</string>
+    <string name="app_name">Uncrackable1</string>
+    <string name="button_verify">Verify</string>
+    <string name="edit_text">Enter the Secret String</string>
+    <string name="thanks">With special thanks to Bernhard Mueller for creating the app. Now maintained by the MSTG project. Want more? Check the MSTG playground!</string>
+</resources>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+~~~
 
 
 
