@@ -87,18 +87,37 @@
 
 ~~~
 
+## Identification des informations sensibles codées en dur dans l'application.
+
+### url & endpoint:
+
+Il y a certains fichiers qui sont codés en dur:
+
+**TODO** : ADD PIC OF FINDING/SEARCHING
+
+~~~ Java
+
+  public static boolean c() {
+        for (String str : new String[]{"/system/app/Superuser.apk", "/system/xbin/daemonsu", "/system/etc/init.d/99SuperSUDaemon", "/system/bin/.ext/.su", "/system/etc/.has_su_daemon", "/system/etc/.installed_su_daemon", "/dev/com.koushikdutta.superuser.daemon/"}) {
+            if (new File(str).exists()) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+~~~
+
+### Informations d'authentification:
+
+**TODO** ADD PIC ABOUT SECRET
+
+### indicateurs de mode de développement:
+
+**TODO** ADD PIC ABOUT DEBUG/TEST.
 
 
-
-
-
-
-
-
-
-
-
-
+**TODO** ADD DESCRIPTION (ANS FROM QUEST 5) 
 
 
 
