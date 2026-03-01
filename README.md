@@ -20,3 +20,57 @@
 
 **TODO:** ADD the three screenshots.
 
+## Obtenir APK:
+
+  ### Vérifiez que l'APK est bien une archive ZIP: 
+
+ ![apks](https://github.com/user-attachments/assets/36c6a7c8-5fb5-4676-9e3b-eea989b4c1cb)
+
+  ### Listez le contenu de l'APK: 
+
+![apk content](https://github.com/user-attachments/assets/14295f51-3af9-4f3b-a2ee-2da1922f35d5)
+
+  ### Integrité d'APK:
+
+  ![apk's sha](https://github.com/user-attachments/assets/9d52bfc3-d06e-42b1-a421-ca8e2a2415e5)
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
