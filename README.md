@@ -110,14 +110,35 @@ Il y a certains fichiers qui sont codés en dur:
 
 ### Informations d'authentification:
 
-**TODO** ADD PIC ABOUT SECRET
+![](https://github.com/user-attachments/assets/c9564daa-9620-4fc2-9ea9-ff28cdcd6036)
 
 ### indicateurs de mode de développement:
 
-**TODO** ADD PIC ABOUT DEBUG/TEST.
+![](https://github.com/user-attachments/assets/2a39dd12-b720-4598-85d9-5c82c05d0e9d)
+
+![](https://github.com/user-attachments/assets/89a1a645-e4f3-4cf0-b877-df0cd18d7e5a)
 
 
 **TODO** ADD DESCRIPTION (ANS FROM QUEST 5) 
 
+### Grille de sévérité :
+* **Faible :** Information publique ou non sensible.
+* **Moyen :** Information sensible à impact limité (clés de test).
+* **Élevé :** Secret critique (clés de production, algorithmes de chiffrement).
+
+### Observations documentées :
+
+| Valeur / Pattern trouvé | Emplacement (Fichier, Classe, Méthode) | Niveau de Risque | Description du problème |
+| :--- | :--- | :--- | :--- |
+| **AES/ECB/PKCS7Padding** | `sg.vantagepoint.a.a` (Méthode `a`) | **Élevé** | Utilisation du mode **ECB** pour le chiffrement AES. Ce mode est non sécurisé car il n'utilise pas de vecteur d'initialisation (IV), rendant les motifs de données prévisibles. |
+| **Indicateurs de Root (Fichiers)** | Classe `c` (Méthode `c`) | **Faible** | Liste de chemins vers des binaires de super-utilisateur (`Superuser.apk`, `daemonsu`). Ces chemins sont codés en dur, ce qui facilite leur contournement. |
+| **Indicateur "test-keys"** | Classe `c` (Méthode `b`) | **Faible** | Vérification de la chaîne `test-keys` dans `Build.TAGS`. Utilisé pour détecter les signatures de ROM personnalisées. |
+| **Vérification du Débogage** | `MainActivity` (Méthode `onCreate`) | **Moyen** | Appel à `b.a(getApplicationContext())` pour détecter si l'application est en mode debug. Si vrai, un message d'alerte s'affiche. |
+| **Logique d'Anti-Tampering** | `MainActivity` (Méthode `onCreate`) | **Élevé** | Si les méthodes de détection de root (`c.a`, `c.b`, `c.c`) renvoient vrai, l'application bloque l'accès avec le message "Root detected!". |
+
+---
+
+## 4. Conclusion sur le Secret Hardcodé
+La classe `sg.vantagepoint.a.a` agit comme un utilitaire de déchiffrement. Le premier paramètre `bArr` représente la clé secrète. Puisque cette méthode est appelée dynamiquement lors de la vérification, la clé est nécessairement stockée ailleurs dans le code source sous forme de tableau d'octets statique, ce qui constitue une vulnérabilité majeure de "Hardcoded Secret".
 
 
