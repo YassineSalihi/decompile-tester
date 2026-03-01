@@ -57,7 +57,7 @@
 - $${\color{red}minSDK:}$$ **19** 
 - $${\color{red}targetSDK:}$$ **28**
 - $${\color{red}MainActivity:}$$ **android:name="sg.vantagepoint.uncrackable1.MainActivity**
-- $${\color{red}intent-filter:}$$ **<intent-filter><action android:name="android.intent.action.MAIN"/><category android:name="android.intent.category.LAUNCHER"/></intent-filter>**
+- $${\color{red}intent-filter:}$$ `<intent-filter><action android:name="android.intent.action.MAIN"/><category android:name="android.intent.category.LAUNCHER"/></intent-filter>`
 - Il n'y a ni `sh android:usesCleartextTraffic="true"` ni `android:debuggable="true"` 
 
 
