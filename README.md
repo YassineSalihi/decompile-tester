@@ -134,7 +134,26 @@ Il y a certains fichiers qui sont codés en dur:
 
 ---
 
-## 4. Conclusion sur le Secret Hardcodé
+### 4. Conclusion sur le Secret Hardcodé
 La classe `sg.vantagepoint.a.a` agit comme un utilitaire de déchiffrement. Le premier paramètre `bArr` représente la clé secrète. Puisque cette méthode est appelée dynamiquement lors de la vérification, la clé est nécessairement stockée ailleurs dans le code source sous forme de tableau d'octets statique, ce qui constitue une vulnérabilité majeure de "Hardcoded Secret".
+
+## Convertir DEX → JAR avec dex2jar: 
+
+**Objectif**: Transformer le bytecode Android en format JAR pour une analyse alternative.
+
+![](https://github.com/user-attachments/assets/5541c3d7-c8d5-43e0-a85b-2f84c220659b)
+
+> [!NOTE]
+> installing dex2jar 
+> ~~~sh 
+>
+>  sudo apt install dex2jar 
+>
+> ~~~~
+
+Voila la commande de convertission:
+
+![](https://github.com/user-attachments/assets/b69b44af-ed22-4071-8950-6473a314b9a9)
+
 
 
