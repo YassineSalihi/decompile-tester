@@ -18,8 +18,6 @@
 - **Exported** : attribut indiquant si un composant Android est accessible depuis d'autres applications
 - **Signature** : mécanisme cryptographique garantissant l'intégrité.
 
-**TODO:** ADD the three screenshots.
-
 ## Obtenir APK:
 
   ### Vérifiez que l'APK est bien une archive ZIP: 
@@ -155,5 +153,87 @@ Voila la commande de convertission:
 
 ![](https://github.com/user-attachments/assets/b69b44af-ed22-4071-8950-6473a314b9a9)
 
+## Comparaison JADX vs JD-GUI:
+
+Choisir notre APK pour JD-GUI:
+![](https://github.com/user-attachments/assets/ffb1034a-a7d1-4be8-b77d-5503fd918272)
+
+Structure d'APK:
+![](https://github.com/user-attachments/assets/d39bd421-250b-4fdc-85e3-dd2a373b591e)
+
+| Aspect | JADX GUI | JD-GUI |
+| --------------- | --------------- | --------------- |
+| Navigation | Structure complète | Juste les classes  |
+| Ressources | Ressources sont disponibles | Absence des ressources |
+
+---
+
+# Rapport d'Analyse Statique - Uncrackable1(Tâche finale)
+
+## A) Informations générales
+- **Titre :** Analyse statique de l'application OWASP Uncrackable Level 1
+- **Date :** 1 mars 2026
+- **Analyste :** [SALIHI Yassine]
+- **APK :** `uncrackable1.apk`
+- **Version :** 1.0
+- **Provenance :** Lab 4 - OWASP Mobile Security Testing Guide (MSTG)
+- **Outils utilisés :** JADX GUI v1.4.7, dex2jar v2.1, JD-GUI v1.6.6
+
+## B) Résumé exécutif
+Cette analyse statique a révélé **3** vulnérabilités majeures dans l'application **Uncrackable1**.
+Les principales préoccupations concernent l'utilisation d'un **mode de chiffrement obsolète (AES-ECB)**, la présence de **secrets cryptographiques codés en dur** et des mécanismes d'auto-protection (Anti-Root/Anti-Debug) facilement identifiables.
+
+Le niveau de risque global est évalué comme **Élevé**.
+
+**Actions prioritaires recommandées :**
+1. Remplacer le mode AES-ECB par AES-GCM avec une gestion dynamique des clés.
+2. Implémenter le **Android Keystore System** pour éviter le stockage de clés en clair dans le code.
+3. Obfusquer les chaînes de caractères sensibles et renforcer les contrôles d'intégrité.
+
+---
+
+## C) Constats détaillés
+
+### Constat #1 : Utilisation d'un mode de chiffrement non sécurisé (ECB)
+**Sévérité :** Élevée  
+**Description :** L'application initialise un objet Cipher avec le mode `AES/ECB/PKCS7Padding`. Le mode ECB (Electronic Codebook) est considéré comme non sécurisé car il n'utilise pas de vecteur d'initialisation (IV), ce qui rend les données chiffrées prévisibles.  
+**Localisation :** Fichier : `sg.vantagepoint.a.a`, Méthode : `a(byte[] bArr, byte[] bArr2)`  
+**Impact potentiel :** Un attaquant pourrait effectuer une analyse de motifs sur le texte chiffré pour déduire des informations sensibles sans posséder la clé.  
+**Remédiation recommandée :** Utiliser un mode de chiffrement authentifié comme **AES-GCM**.
+
+
+
+### Constat #2 : Secrets et clés cryptographiques codés en dur
+**Sévérité :** Élevée  
+**Description :** La clé de déchiffrement (`bArr`) est passée sous forme de tableau d'octets statique. Bien que la méthode soit isolée, l'appelant fournit une clé fixe qui peut être extraite via une recherche de références (Find Usages) dans le bytecode.  
+**Localisation :** Classe `sg.vantagepoint.uncrackable1.MainActivity` (Logique de vérification)  
+**Impact potentiel :** Un attaquant peut récupérer la "Secret String" originale en quelques secondes en réutilisant la clé extraite.  
+**Remédiation recommandée :** Ne jamais coder de clés en dur. Utiliser une dérivation de clé à partir d'un secret utilisateur ou le stockage sécurisé matériel (TEE/Keystore).
+
+### Constat #3 : Détection de Root et Debug contournable
+**Sévérité :** Moyenne  
+**Description :** L'application contient une liste de chemins de fichiers système (`Superuser.apk`, `daemonsu`, etc.) et des vérifications de `Build.TAGS` pour bloquer l'exécution sur les téléphones rootés.  
+**Localisation :** Classe `sg.vantagepoint.a.c`, Méthodes `a()`, `b()` et `c()`  
+**Impact potentiel :** Ces vérifications sont purement logicielles et peuvent être neutralisées par injection de code (Frida) ou par modification du bytecode (Smali patching).  
+**Remédiation recommandée :** Utiliser des solutions d'attestation externe comme **Play Integrity API**.
+
+---
+
+## D) Annexes
+
+### Permissions demandées
+- `android.permission.INTERNET` (Absente par défaut, mais vérifiée via Manifest)
+
+### Composants exportés
+- **Activity :** `sg.vantagepoint.uncrackable1.MainActivity` (Point d'entrée LAUNCHER)
+
+### Comparaison des outils utilisés
+| Outil | Forces | Faiblesses |
+| :--- | :--- | :--- |
+| **JADX GUI** | Décompilation précise, accès direct aux ressources (XML, images). | Parfois lent sur de très gros fichiers. |
+| **dex2jar / JD-GUI** | Permet une analyse de type "Java Standard", utile pour les outils tiers. | Ne traite pas les fichiers de ressources (Manifest, Strings). |
+
+---
+**Rapport généré par :** *SALIHI Yassine*
 
 

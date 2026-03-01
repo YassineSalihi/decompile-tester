@@ -1,0 +1,78 @@
+{
+  "projectVersion": 2,
+  "files": [
+    "UnCrackable-Level1.apk"
+  ],
+  "treeExpansionsV2": [
+    "c:sg.vantagepoint.uncrackable1.a",
+    "t:JResources//resources.arsc//res//values",
+    "c:sg.vantagepoint.a.a",
+    "c:sg.vantagepoint.uncrackable1.MainActivity",
+    "t:JResources//res//mipmap-xxxhdpi",
+    "p:owasp.mstg.uncrackable1"
+  ],
+  "codeData": {
+    "comments": [],
+    "renames": []
+  },
+  "openTabs": [
+    {
+      "type": "class",
+      "tabPath": "sg.vantagepoint.uncrackable1.MainActivity",
+      "subPath": "java",
+      "caret": 2299,
+      "view": {
+        "x": 0,
+        "y": 186
+      },
+      "active": false,
+      "pinned": false,
+      "bookmarked": false,
+      "hidden": false,
+      "previewTab": false
+    },
+    {
+      "type": "class",
+      "tabPath": "sg.vantagepoint.a.a",
+      "subPath": "java",
+      "caret": 434,
+      "view": {
+        "x": 0,
+        "y": 0
+      },
+      "active": false,
+      "pinned": false,
+      "bookmarked": false,
+      "hidden": false,
+      "previewTab": false
+    },
+    {
+      "type": "class",
+      "tabPath": "sg.vantagepoint.a.c",
+      "subPath": "java",
+      "caret": 467,
+      "view": {
+        "x": 0,
+        "y": 0
+      },
+      "active": true,
+      "pinned": false,
+      "bookmarked": false,
+      "hidden": false,
+      "previewTab": false
+    }
+  ],
+  "cacheDir": "/home/addseen/.cache/jadx/projects/UnCrackable-Level1-08be902e94135a86a14da4a51a8c83e3",
+  "enableLiveReload": false,
+  "searchHistory": [
+    "test",
+    "DEBUG",
+    "ke",
+    "secret",
+    ".io",
+    "com"
+  ],
+  "searchResourcesFilter": "$TEXT",
+  "searchResourcesSizeLimit": 0,
+  "pluginOptions": {}
+}
