@@ -50,7 +50,7 @@
 ![main](https://github.com/user-attachments/assets/52a2b94a-6eeb-46f4-887e-c38cd8ee6d9d)
 
 
-##  $${\color{red}Analyse le manifeste:}$$
+##  $${\color{red}Analyse  du manifeste:}$$
 
 - $${\color{red}Package principal:}$$ **owasp.mstg.uncrackable1**.
 - $${\color{red}versionName:}$$ **1.0**
@@ -93,8 +93,6 @@
 
 Il y a certains fichiers qui sont codés en dur:
 
-**TODO** : ADD PIC OF FINDING/SEARCHING
-
 ~~~ Java
 
   public static boolean c() {
@@ -118,8 +116,6 @@ Il y a certains fichiers qui sont codés en dur:
 
 ![](https://github.com/user-attachments/assets/89a1a645-e4f3-4cf0-b877-df0cd18d7e5a)
 
-
-**TODO** ADD DESCRIPTION (ANS FROM QUEST 5) 
 
 ### Grille de sévérité :
 * **Faible :** Information publique ou non sensible.
