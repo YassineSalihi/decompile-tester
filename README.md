@@ -50,6 +50,21 @@
 ![main](https://github.com/user-attachments/assets/52a2b94a-6eeb-46f4-887e-c38cd8ee6d9d)
 
 
+## Analyse le manifeste: $${\color{red}Analyse le manifeste: }$$
+
+- $${\color{red}Package principal:}$$ **owasp.mstg.uncrackable1**.
+- $${\color{red}versionName:}$$ **1.0**
+- $${\color{red}minSDK:}$$ **19** 
+- $${\color{red}targetSDK:}$$ **28**
+- $${\color{red}MainActivity:}$$ **android:name="sg.vantagepoint.uncrackable1.MainActivity**
+- $${\color{red}intent-filter:}$$ **<intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>**
+- Il n'y a ni ~~~sh android:usesCleartextTraffic="true"~~~ ni ~~~android:debuggable="true"~~~ 
+
+
+
 
 
 
