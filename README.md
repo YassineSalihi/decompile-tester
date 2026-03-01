@@ -34,6 +34,45 @@
 
   ![apk's sha](https://github.com/user-attachments/assets/9d52bfc3-d06e-42b1-a421-ca8e2a2415e5)
   
+## Exploration de la structure de l'APK:
+
+### resources/AndroidManifest.xml: 
+
+![manifeste](https://github.com/user-attachments/assets/07daec94-f21c-40cf-8c5b-30da66c507b2) 
+
+### resources/res/values/strings.xml:
+
+![strings.xml](https://github.com/user-attachments/assets/1a92a92b-d39e-47da-9814-7db900dcf522) 
+
+
+### sg.vantagepoint.uncrackable1: 
+
+![main](https://github.com/user-attachments/assets/52a2b94a-6eeb-46f4-887e-c38cd8ee6d9d)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
